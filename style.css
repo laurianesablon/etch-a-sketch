@@ -1,0 +1,26 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.gomme {
+    border: solid 3px purple
+}
+.pixel {
+    min-height:1%;
+    min-width: 1%;
+}
+.red {
+    background-color: purple;
+}
+.container {
+    display: grid;
+    overflow: none;
+    border: 3px solid rgb(176, 28, 28);
+
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(16, 1fr);
+    height: 800px;
+    width: 800px;
+    
+}
