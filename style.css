@@ -1,26 +1,60 @@
 body {
+    background-color: #FFF; 
+    margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 200px auto;
+    font-family: 'Courier New', Courier, monospace;
 }
-.gomme {
+p {
+    color: black;
+
+}
+.clear {
     border: solid 3px purple
 }
 .pixel {
     min-height:1%;
     min-width: 1%;
 }
-.red {
-    background-color: purple;
+.clear {
+    border-radius: 10px;
+    width: 70px;
+    background-color: #FFF;
+
+}
+.canva {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.colorContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+div {
+    outline: none;
+}
+.color {
+    height: 50px;
+    width: 50px;
+    border-radius: 50px;
+
+}
+.white {
+    border: 1px solid black;
 }
 .container {
     display: grid;
     overflow: none;
-    border: 3px solid rgb(176, 28, 28);
-
+    border: 3px solid black;
+    background-color: white;
     grid-template-columns: repeat(16, 1fr);
     grid-template-rows: repeat(16, 1fr);
-    height: 800px;
-    width: 800px;
-    
+    height: 700px;
+    width: 700px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }

@@ -8,13 +8,27 @@
     <title>Etch-a-Sketch</title>
 </head>
 <body>
-
-    <button class="gomme">Gomme</button>
-    <input id="colorPicker" type="color">
-    <div class="container">
-
+    
+    <div class="colorContainer">
+        <button class="clear">Effacer</button>
+        <button class="orange color" style= background-color:orange alt="orange"></button>
+        <button class="yellow color" style= background-color:yellow></button>
+        <button class="green color" style= background-color:green></button>
+        <button class="blue color"  style= background-color:blue></button>
+        <button class="purple color" style= background-color:purple></button>
+        <button class="red color" style= background-color:red></button>
+        <button class="pink color" style= background-color:pink></button>
+        <button class="grey color" style= background-color:grey></button>
+        <button class="white color" style= background-color:white></button>
+        <button class="black color" style= background-color:black></button>
+        <input id="colorPicker" type="color">
     </div>
+    <div class="canva">
+        <div class="container"></div>
+    </div>
+    <p class="sizeValue"></p>
+    <input id="sizeSlider" type="range" value="16" min="1" max="100">
 
-<script src="script.js"></script>
+<script src="script.js" defer></script>
 </body>
 </html>

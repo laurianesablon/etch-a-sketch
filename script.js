@@ -1,38 +1,72 @@
-grid = document.createDocumentFragment();
-container = document.querySelector('.container')
-gomme = document.querySelector(".gomme")
-let userInput = 100;
-colorPicker = document.querySelector(".colorPicker")
-console.log(colorPicker)
+let container = document.querySelector('.container');
+let clear = document.querySelector(".clear");
+let colorPicker = document.getElementById("colorPicker");
+let buttonsContainer = document.querySelector(".colorContainer");
+let sizeValue = document.querySelector(".sizeValue")
+let selectedColor = "black";
+let isDrawing = false; // Keep track of whether the mouse is currently being held down
+let sizeSlider = document.querySelector("#sizeSlider")
+let userInput = 16;
 
-gomme.addEventListener('click', () => {
-    divs.forEach((div)=> {
-        div.classList.remove("red");
-    })
-})
 
+
+clear.addEventListener('click', () => {
+    divs.forEach((div) => {
+        div.style.backgroundColor = "white";
+    });
+});
+
+/*sizeSlider.addEventListener("click", (e) => {
+userInput = e.target.value
+sizeValue.innerHTML = userInput + " x " + userInput
+container.innerHTML = ""
+console.log(userInput)
+
+})*/
+
+let grid = document.createDocumentFragment();
 for (let i = 0; i < (userInput*userInput); i++) {
-        // Create a new div element
-    let newDiv = document.createElement("div")
-    newDiv.classList.add("pixel")
-        // Add some content to the div
-        // Add the div to the fragment
-    grid.appendChild(newDiv);
-}
-    // Add the div to the body of the document
-container.appendChild(grid);
+let newDiv = document.createElement("div");
+newDiv.classList.add("pixel");
+grid.appendChild(newDiv);
 
-//je veux append l'user input pour changer le nombre de colonnes
+container.appendChild(grid);
+}
+divs = document.querySelectorAll('.pixel');
+
 container.style.gridTemplateColumns = `repeat(${userInput}, 1fr)`;
 container.style.gridTemplateRows = `repeat(${userInput}, 1fr)`;
 
 
-divs = document.querySelectorAll('.pixel')
 
-divs.forEach((div)=> {
-    div.addEventListener('mouseover', ()=> {
-    div.classList.add("red");
-    })
-})
+
+divs.forEach((div) => {
+    div.addEventListener('mousedown', () => {
+        isDrawing = true;
+        div.style.backgroundColor = selectedColor;
+    });
+
+    div.addEventListener('mouseover', (e) => {
+            if(isDrawing){
+            e.target.style.backgroundColor = selectedColor;
+            }
+    });
+    div.addEventListener('mouseup', () => {
+        isDrawing = false;
+    });
+
+});
+
+colorPicker.addEventListener("input", () => {
+    selectedColor = colorPicker.value;
+});
+
+
+buttonsContainer.addEventListener("click", (e) => {
+    let clickedButton = e.target; 
+    if (clickedButton.classList.contains("color")) {
+        selectedColor = clickedButton.style.backgroundColor;
+    }
+});
 
 
