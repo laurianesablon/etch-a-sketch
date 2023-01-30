@@ -19,6 +19,11 @@ header {
     flex-direction: column;
     margin-bottom: 20px;
 }
+
+.idryss {
+    display: flex;
+    justify-content: center;
+}
 p {
     color: black;
 
