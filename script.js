@@ -6,7 +6,10 @@ let sizeValue = document.querySelector(".sizeValue")
 let selectedColor = "black";
 let isDrawing = false; // Keep track of whether the mouse is currently being held down
 let sizeSlider = document.querySelector("#sizeSlider")
-let userInput = 16;
+let userInput = 32;
+
+sizeValue.innerHTML = userInput + " x " + userInput
+
 
 
 
@@ -16,21 +19,18 @@ clear.addEventListener('click', () => {
     });
 });
 
-/*sizeSlider.addEventListener("click", (e) => {
-userInput = e.target.value
-sizeValue.innerHTML = userInput + " x " + userInput
-container.innerHTML = ""
-console.log(userInput)
+sizeSlider.addEventListener('click', (e) => {
+    userInput = e.target.value;
+    sizeValue.innerHTML = userInput + " x " + userInput
+    container.innerHTML = ""
 
-})*/
+    let grid = document.createDocumentFragment();
+    for (let i = 0; i < (userInput*userInput); i++) {
+        let newDiv = document.createElement("div");
+        newDiv.classList.add("pixel");
+        grid.appendChild(newDiv);
 
-let grid = document.createDocumentFragment();
-for (let i = 0; i < (userInput*userInput); i++) {
-let newDiv = document.createElement("div");
-newDiv.classList.add("pixel");
-grid.appendChild(newDiv);
-
-container.appendChild(grid);
+    container.appendChild(grid);
 }
 divs = document.querySelectorAll('.pixel');
 
@@ -57,6 +57,12 @@ divs.forEach((div) => {
 
 });
 
+})
+
+
+    console.log(userInput)
+
+
 colorPicker.addEventListener("input", () => {
     selectedColor = colorPicker.value;
 });
@@ -68,5 +74,3 @@ buttonsContainer.addEventListener("click", (e) => {
         selectedColor = clickedButton.style.backgroundColor;
     }
 });
-
-
